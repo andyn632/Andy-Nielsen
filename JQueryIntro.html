@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+    CSIS 2470
+    Assignment 3: JQuery Intro
+    Author     : Andrew Nielsen
+-->
+<html>
+    <head>
+        <title>JQuery Intro</title>
+        <link href="css/JQueryIntro.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+
+            $(document).ready(function () {
+                //Start JQuery Accordion
+
+                $("#accordion > li > div").click(function () {
+                    if (false == $(this).next().is(':visible')) {
+                        $('#accordion ul').slideUp(300);
+                    }
+                    $(this).next().slideToggle(300);
+                });
+                $('#accordion ul:eq(0)').show();
+
+                //Start JQuery Form Validation
+                
+                $('#accordion').validate({
+                    rules : {
+                        fname : {
+                            required: true,
+                            minlenght: 2
+                        },
+                        lname : {
+                            required: true,
+                            minlenght: 2
+                        },
+                        school : {
+                            required: true,
+                            minlenght: 2
+                        },
+                        major : {
+                            required: true,
+                            minlenght: 2
+                        },
+                        hobby1 : {
+                            required: true,
+                            minlenght: 2
+                        },
+                        hobby2 : {
+                            required: true,
+                            minlenght: 2
+                        }
+                    },//end of validation rules
+                    messages : {
+                        fname : {
+                            required : "Please enter your first name",
+                            minlenght: "This field must contain at least 2 characters"
+                        },
+                        lname : {
+                            required : "Please enter your last name",
+                            minlenght: "This field must contain at least 2 characters"
+                        },
+                        school : {
+                            required : "Please enter the name of your school",
+                            minlenght: "This field must contain at least 2 characters"
+                        },
+                        major : {
+                            required : "Please enter the name of your najor",
+                            minlenght: "This field must contain at least 2 characters"
+                        },
+                        hobby1 : {
+                            required : "Please enter a hobby",
+                            minlenght: "This field must contain at least 2 characters"
+                        },
+                        hoby2 : {
+                            required : "Please enter a hoby",
+                            minlenght: "This field must contain at least 2 characters"
+                        }
+                    }//end of error messages
+                    
+                });//end of validate()
+            });
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <!--To create the accordion menu-->
+            <ul id="accordion">
+                <li><div>Personal</div>
+                    <ul>
+                        <li><label for="fname">First name:</label></li>
+                        <li><input type="text" id="fname" name="fname"></li>
+                        <li><label for="lname">Last name:</label></li>
+                        <li><input type="text" id="lname" name="lname"></li>
+                    </ul>
+                </li>
+                <li><div>School</div>
+                    <ul>
+                        <li><label for="fname">School name:</label></li>
+                        <li><input type="text" id="school" name="school"></li>
+                        <li><label for="lname">Major:</label></li>
+                        <li><input type="text" id="major" name="major"></li>
+                    </ul>
+                </li>
+                <li><div>Hobbies</div>
+                    <ul>
+                        <li><label for="fname">Hobby 1:</label></li>
+                        <li><input type="text" id="hobby1" name="hobby1"></li>
+                        <li><label for="lname">Hobby 2:</label></li>
+                        <li><input type="text" id="hobby2" name="hobby2"></li>
+                    </ul>
+                </li>
+                <li><div>Music</div>
+                    <ul>
+                        <li><label for="fname">Favorite Band:</label></li>
+                        <li><input type="text" id="band" name="band"></li>
+                        <li><label for="lname">Genre:</label></li>
+                        <li><input type="text" id="genre" name="genre"></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="submit">				
+            <button type="submit">Submit</button>
+        </div>
+    </body>
+</html>
